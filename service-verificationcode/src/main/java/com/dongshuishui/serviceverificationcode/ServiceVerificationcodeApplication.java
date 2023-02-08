@@ -1,19 +1,15 @@
-package com.dongshuishui.apipassenger;
+package com.dongshuishui.serviceverificationcode;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
-/**
- * @Auther: 东水水
- * @Date: 2023/2/8  17:11
- * @Description: com.dongshuishui.apipassenger
- * @Version: 1.0
- */
 @EnableDiscoveryClient
 @SpringBootApplication
-public class ApiPassengerApplication {
+public class ServiceVerificationcodeApplication {
+
     public static void main(String[] args) {
-        SpringApplication.run(ApiPassengerApplication.class);
+        SpringApplication.run(ServiceVerificationcodeApplication.class, args);
     }
+
 }
