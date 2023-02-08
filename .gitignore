@@ -1,7 +1,7 @@
 # Project exclude paths
 /target/
 #过滤文件夹target,.idea
-/target/*
+*/target/*
 /.idea
 /out
 *.iml
