@@ -3,6 +3,7 @@ package com.dongshuishui.apipassenger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
  * @Auther: 东水水
@@ -10,6 +11,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  * @Description: com.dongshuishui.apipassenger
  * @Version: 1.0
  */
+@EnableFeignClients
 @EnableDiscoveryClient
 @SpringBootApplication
 public class ApiPassengerApplication {
@@ -17,3 +19,4 @@ public class ApiPassengerApplication {
         SpringApplication.run(ApiPassengerApplication.class);
     }
 }
+
