@@ -2,6 +2,7 @@ package com.dongshuishui.apipassenger.controller;
 
 import com.dongshuishui.apipassenger.request.VerificationCodeDTO;
 import com.dongshuishui.apipassenger.service.VerificationCodeService;
+import com.dongshuishui.internalcommon.dto.ResponseResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,9 +19,8 @@ public class VerificationCodeController {
     @Autowired
     private VerificationCodeService verificationCodeService;
     @GetMapping("//verification-code")
-    public String verificationCode(@RequestBody VerificationCodeDTO verificationCodeDTO){
+    public ResponseResult verificationCode(@RequestBody VerificationCodeDTO verificationCodeDTO){
         String passengerPhone =verificationCodeDTO.getPassengerPhone();
-        System.out.println("接收到的手机参数：" + passengerPhone);
         return verificationCodeService.generatorCode(passengerPhone);
     }
 }
