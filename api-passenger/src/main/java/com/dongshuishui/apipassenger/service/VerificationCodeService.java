@@ -1,10 +1,12 @@
 package com.dongshuishui.apipassenger.service;
 
 import com.dongshuishui.apipassenger.remote.ServiceVerificationcodeClient;
+import com.dongshuishui.internalcommon.constant.CommonStatusEnum;
 import com.dongshuishui.internalcommon.dto.ResponseResult;
 import com.dongshuishui.internalcommon.dto.TokenResponse;
 import com.dongshuishui.response.NumberCodeReponse;
 import net.sf.json.JSONObject;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
@@ -35,7 +37,7 @@ public class VerificationCodeService {
         int numberCode = numberCodeReponse.getData().getNumberCode();
 
         //key,value,过期时间
-        String key = verificationCodePrefix + passengerPhone;
+        String key = generatorKeyByPhone(passengerPhone);
         //存入redis
         stringRedisTemplate.opsForValue().set(key,numberCode+"",2, TimeUnit.MINUTES);
 
@@ -43,6 +45,15 @@ public class VerificationCodeService {
 
         //返回值
         return ResponseResult.success("");
+    }
+
+    /**
+     * 根据手机号，生成key
+     * @param passengerPhone
+     * @return
+     */
+    private String generatorKeyByPhone(String passengerPhone){
+        return  verificationCodePrefix + passengerPhone;
     }
 
     /**
@@ -56,8 +67,22 @@ public class VerificationCodeService {
         //根据手机号，到redis读取验证码
         System.out.println("根据手机号，到redis读取验证码");
 
+        //生成key
+        String key = generatorKeyByPhone(passengerPhone);
+
+        //根据key获取value
+        String codeRedis = stringRedisTemplate.opsForValue().get(key);
+        System.out.println("redis中的value：" + codeRedis);
+
         //校验验证码
-        System.out.println("校验验证码");
+        if(StringUtils.isBlank(codeRedis)){
+            return ResponseResult.fail(CommonStatusEnum.VERIFICATION_CODE_ERROR.getCode(),
+                    CommonStatusEnum.VERIFICATION_CODE_ERROR.getValue());
+        }
+        if(!verificationCode.trim().equals(codeRedis.trim())){
+            return ResponseResult.fail(CommonStatusEnum.VERIFICATION_CODE_ERROR.getCode(),
+                    CommonStatusEnum.VERIFICATION_CODE_ERROR.getValue());
+        }
 
         //判断原来是否有用户，并进行对应的处理
         System.out.println("判断原来是否有用户，并进行对应的处理");
