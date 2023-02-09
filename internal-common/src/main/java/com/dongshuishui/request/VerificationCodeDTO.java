@@ -1,4 +1,4 @@
-package com.dongshuishui.apipassenger.request;
+package com.dongshuishui.request;
 
 import lombok.Data;
 
