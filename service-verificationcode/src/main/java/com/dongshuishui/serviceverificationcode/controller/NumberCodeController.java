@@ -31,8 +31,4 @@ public class NumberCodeController {
         return ResponseResult.success(reponse);
     }
 
-    public static void main(String[] args) {
-
-
-    }
 }

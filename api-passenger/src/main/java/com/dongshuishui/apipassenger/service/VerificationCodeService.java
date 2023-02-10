@@ -1,9 +1,11 @@
 package com.dongshuishui.apipassenger.service;
 
+import com.dongshuishui.apipassenger.remote.ServicePassengerUserClient;
 import com.dongshuishui.apipassenger.remote.ServiceVerificationcodeClient;
 import com.dongshuishui.internalcommon.constant.CommonStatusEnum;
 import com.dongshuishui.internalcommon.dto.ResponseResult;
 import com.dongshuishui.internalcommon.dto.TokenResponse;
+import com.dongshuishui.request.VerificationCodeDTO;
 import com.dongshuishui.response.NumberCodeReponse;
 import net.sf.json.JSONObject;
 import org.apache.commons.lang.StringUtils;
@@ -24,6 +26,8 @@ public class VerificationCodeService {
     @Autowired
     private ServiceVerificationcodeClient serviceVerificationcodeClient;
 
+    @Autowired
+    private ServicePassengerUserClient servicePassengerUserClient;
     //乘客验证码的前缀，获取验证码
     private String verificationCodePrefix = "passenger-verifaiction-code-";
 
@@ -84,9 +88,10 @@ public class VerificationCodeService {
                     CommonStatusEnum.VERIFICATION_CODE_ERROR.getValue());
         }
 
-        //判断原来是否有用户，并进行对应的处理
-        System.out.println("判断原来是否有用户，并进行对应的处理");
-
+        //判断原来是否有用户，并进行对应的处理，
+        VerificationCodeDTO verificationCodeDTO = new VerificationCodeDTO();
+        verificationCodeDTO.setPassengerPhone(passengerPhone);
+        servicePassengerUserClient.loginOrRegister(verificationCodeDTO );
         //颁发令牌
         System.out.println("颁发令牌");
         TokenResponse tokenResponse = new TokenResponse();
