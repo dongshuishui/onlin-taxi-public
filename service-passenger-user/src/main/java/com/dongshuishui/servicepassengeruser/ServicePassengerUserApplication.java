@@ -3,6 +3,7 @@ package com.dongshuishui.servicepassengeruser;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /**
  * @Auther: 东水水
@@ -11,6 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Version: 1.0
  */
 @SpringBootApplication
+@EnableDiscoveryClient
 @MapperScan("com.dongshuishui.servicepassengeruser.mapper")
 public class ServicePassengerUserApplication {
     public static void main(String[] args) {

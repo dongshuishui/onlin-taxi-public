@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
  */
 @Data
 public class PassengerUser {
-    private long id;//乘客主键
+    private Long id;//乘客主键
 
     private LocalDateTime gmtCreate;//创建时间
 
