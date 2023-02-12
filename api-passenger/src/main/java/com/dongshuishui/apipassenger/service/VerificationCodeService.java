@@ -3,10 +3,12 @@ package com.dongshuishui.apipassenger.service;
 import com.dongshuishui.apipassenger.remote.ServicePassengerUserClient;
 import com.dongshuishui.apipassenger.remote.ServiceVerificationcodeClient;
 import com.dongshuishui.internalcommon.constant.CommonStatusEnum;
+import com.dongshuishui.internalcommon.constant.IndentityConstant;
 import com.dongshuishui.internalcommon.dto.ResponseResult;
 import com.dongshuishui.internalcommon.dto.TokenResponse;
 import com.dongshuishui.request.VerificationCodeDTO;
 import com.dongshuishui.response.NumberCodeReponse;
+import com.dongshuishui.util.JwtUtils;
 import net.sf.json.JSONObject;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -93,9 +95,12 @@ public class VerificationCodeService {
         verificationCodeDTO.setPassengerPhone(passengerPhone);
         servicePassengerUserClient.loginOrRegister(verificationCodeDTO );
         //颁发令牌
-        System.out.println("颁发令牌");
+        String token = JwtUtils.generatorToken(passengerPhone, IndentityConstant.PASSENGER_INDENTITY);
+
+
+
         TokenResponse tokenResponse = new TokenResponse();
-        tokenResponse.setToken("token value");
+        tokenResponse.setToken(token);
         return ResponseResult.success(tokenResponse);
     }
 }

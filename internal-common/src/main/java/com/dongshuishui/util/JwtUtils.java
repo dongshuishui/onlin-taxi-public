@@ -5,6 +5,7 @@ import com.auth0.jwt.JWTCreator;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
+import com.dongshuishui.internalcommon.dto.TokenResult;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -21,11 +22,16 @@ public class JwtUtils {
     //盐
     private static final String SIGN = "GPFmsb!@#$$";
 
-    private static final String JWT_KEY = "passengerPhone";
+    private static final String JWT_KEY_PHONE = "phone";
+
+    //乘客是1，司机是2；
+    private static final String JWT_KEY_INDNTITY="identity";
+
     //生成token
-    public static String generatorToken(String passengerPhone){
+    public static String generatorToken(String passengerPhone, String indentity){
         Map<String, String> map = new HashMap<>();
-        map.put(JWT_KEY,passengerPhone);
+        map.put(JWT_KEY_PHONE,passengerPhone);
+        map.put(JWT_KEY_INDNTITY, indentity);
 
         //token过期时间
         Calendar calendar = Calendar.getInstance();
@@ -46,17 +52,23 @@ public class JwtUtils {
         return sign;
     }
     //解析token
-    public static String paresToken(String token){
+    public static TokenResult paresToken(String token){
         DecodedJWT verify = JWT.require(Algorithm.HMAC256(SIGN)).build().verify(token);
-        Claim claim = verify.getClaim(JWT_KEY);
-        return claim.toString();
+        String phone = verify.getClaim(JWT_KEY_PHONE).toString();
+        String indentity = verify.getClaim(JWT_KEY_INDNTITY).toString();
+        TokenResult tokenResult = new TokenResult();
+        tokenResult.setPhone(phone);
+        tokenResult.setIndentity(indentity);
+        return tokenResult;
     }
 
     public static void main(String[] args) {
 
-        String s = generatorToken("13855141090");
+        String s = generatorToken("13855141090","1");
         System.out.println("生成的tonken：" + s);
 
-        System.out.println("解析token后的值：" + paresToken(s));
+        TokenResult tokenResult = paresToken(s);
+
+        System.out.println("解析token后的值：passengerPhone:" + tokenResult.getPhone() +"，indentity：" + tokenResult.getIndentity());
     }
 }
