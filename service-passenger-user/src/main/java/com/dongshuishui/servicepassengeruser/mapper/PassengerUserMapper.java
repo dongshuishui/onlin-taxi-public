@@ -1,7 +1,7 @@
 package com.dongshuishui.servicepassengeruser.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.dongshuishui.servicepassengeruser.dto.PassengerUser;
+import com.dongshuishui.internalcommon.dto.PassengerUser;
 import org.springframework.stereotype.Repository;
 
 /**

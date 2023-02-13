@@ -1,4 +1,4 @@
-package com.dongshuishui.servicepassengeruser.dto;
+package com.dongshuishui.internalcommon.dto;
 
 import lombok.Data;
 
@@ -26,5 +26,6 @@ public class PassengerUser {
 
     private byte state;//乘客状态 0有效，1失效
 
+    private String profilePhoto;//头像
 
 }
