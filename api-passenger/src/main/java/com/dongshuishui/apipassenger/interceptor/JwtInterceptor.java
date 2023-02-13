@@ -6,7 +6,11 @@ import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.dongshuishui.internalcommon.dto.ResponseResult;
 import com.dongshuishui.internalcommon.dto.TokenResult;
 import com.dongshuishui.util.JwtUtils;
+import com.dongshuishui.util.RedisPrefixUtils;
 import net.sf.json.JSONObject;
+import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import javax.servlet.http.HttpServletRequest;
@@ -20,6 +24,10 @@ import java.io.PrintWriter;
  * @Version: 1.0
  */
 public class JwtInterceptor implements HandlerInterceptor {
+
+    @Autowired
+    private StringRedisTemplate stringRedisTemplate;
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
@@ -29,8 +37,10 @@ public class JwtInterceptor implements HandlerInterceptor {
 
         String token = request.getHeader("Authorization");
 
+        //解析token
+        TokenResult tokenResult = null;
         try {
-            TokenResult tokenResult = JwtUtils.paresToken(token);
+            tokenResult = JwtUtils.paresToken(token);
         }catch (SignatureVerificationException exception){//验证异常
             resultString = "token sign error";
             result = false;
@@ -44,6 +54,31 @@ public class JwtInterceptor implements HandlerInterceptor {
             resultString = "token invalid";
             result = false;
         }
+        if(token == null){
+            resultString = "token invalid";
+            result = false;
+        }else {
+            //拼接key
+            String phone = tokenResult.getPhone();
+            String indentity = tokenResult.getIdentity();
+
+            String tokenKey = RedisPrefixUtils.genertorTokenKey(phone,indentity);
+            //从redis中取出token
+            String tokenRedis = stringRedisTemplate.opsForValue().get(tokenKey);
+            if(StringUtils.isBlank(tokenRedis)){
+                resultString = "token invalid";
+                result = false;
+            }else {
+                if(!token.trim().equals(tokenRedis.trim())){
+                    resultString = "token invalid";
+                    result = false;
+                }
+            }
+        }
+
+
+        //比较传入的token和reids中的token是否相同
+
         if(!result){
             PrintWriter out = response.getWriter();
             out.println(JSONObject.fromObject(ResponseResult.fail(resultString)).toString());

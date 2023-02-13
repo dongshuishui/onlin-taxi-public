@@ -10,6 +10,14 @@ import lombok.Data;
  */
 @Data
 public class TokenResult {
+
+    /**
+     * 手机号码
+     */
     private String phone;
-    private String indentity;
+
+    /**
+     * 身份标识 乘客是1，司机是2
+     */
+    private String identity;
 }

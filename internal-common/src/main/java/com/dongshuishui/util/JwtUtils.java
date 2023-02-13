@@ -25,13 +25,13 @@ public class JwtUtils {
     private static final String JWT_KEY_PHONE = "phone";
 
     //乘客是1，司机是2；
-    private static final String JWT_KEY_INDNTITY="identity";
+    private static final String JWT_KEY_IDNTITY = "identity";
 
     //生成token
-    public static String generatorToken(String passengerPhone, String indentity){
+    public static String generatorToken(String passengerPhone, String identity){
         Map<String, String> map = new HashMap<>();
         map.put(JWT_KEY_PHONE,passengerPhone);
-        map.put(JWT_KEY_INDNTITY, indentity);
+        map.put(JWT_KEY_IDNTITY, identity);
 
         //token过期时间
         Calendar calendar = Calendar.getInstance();
@@ -54,11 +54,11 @@ public class JwtUtils {
     //解析token
     public static TokenResult paresToken(String token){
         DecodedJWT verify = JWT.require(Algorithm.HMAC256(SIGN)).build().verify(token);
-        String phone = verify.getClaim(JWT_KEY_PHONE).toString();
-        String indentity = verify.getClaim(JWT_KEY_INDNTITY).toString();
+        String phone = verify.getClaim(JWT_KEY_PHONE).asString();
+        String identity = verify.getClaim(JWT_KEY_IDNTITY).asString();
         TokenResult tokenResult = new TokenResult();
         tokenResult.setPhone(phone);
-        tokenResult.setIndentity(indentity);
+        tokenResult.setIdentity(identity);
         return tokenResult;
     }
 
@@ -69,6 +69,6 @@ public class JwtUtils {
 
         TokenResult tokenResult = paresToken(s);
 
-        System.out.println("解析token后的值：passengerPhone:" + tokenResult.getPhone() +"，indentity：" + tokenResult.getIndentity());
+        System.out.println("解析token后的值：passengerPhone:" + tokenResult.getPhone() +"，identity：" + tokenResult.getIdentity());
     }
 }
