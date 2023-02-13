@@ -59,7 +59,6 @@ public class JwtInterceptor implements HandlerInterceptor {
             }
         }
 
-
         //比较传入的token和reids中的token是否相同
 
         if(!result){
