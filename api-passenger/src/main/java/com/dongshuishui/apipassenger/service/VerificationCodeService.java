@@ -98,7 +98,6 @@ public class VerificationCodeService {
         String token = JwtUtils.generatorToken(passengerPhone, IndentityConstant.PASSENGER_INDENTITY);
 
 
-
         TokenResponse tokenResponse = new TokenResponse();
         tokenResponse.setToken(token);
         return ResponseResult.success(tokenResponse);
