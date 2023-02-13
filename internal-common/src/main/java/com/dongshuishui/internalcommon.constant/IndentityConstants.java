@@ -6,7 +6,7 @@ package com.dongshuishui.internalcommon.constant;
  * @Description: com.dongshuishui.internalcommon.constant
  * @Version: 1.0
  */
-public class IndentityConstant {
+public class IndentityConstants {
     //乘客身份
     public static final String PASSENGER_INDENTITY = "1";
 

@@ -3,6 +3,7 @@ package com.dongshuishui.apipassenger.interceptor;
 import com.auth0.jwt.exceptions.AlgorithmMismatchException;
 import com.auth0.jwt.exceptions.SignatureVerificationException;
 import com.auth0.jwt.exceptions.TokenExpiredException;
+import com.dongshuishui.internalcommon.constant.TokenConstants;
 import com.dongshuishui.internalcommon.dto.ResponseResult;
 import com.dongshuishui.internalcommon.dto.TokenResult;
 import com.dongshuishui.util.JwtUtils;
@@ -62,7 +63,7 @@ public class JwtInterceptor implements HandlerInterceptor {
             String phone = tokenResult.getPhone();
             String indentity = tokenResult.getIdentity();
 
-            String tokenKey = RedisPrefixUtils.genertorTokenKey(phone,indentity);
+            String tokenKey = RedisPrefixUtils.genertorTokenKey(phone,indentity, TokenConstants.ACCESS_TOKEN_TYPE);
             //从redis中取出token
             String tokenRedis = stringRedisTemplate.opsForValue().get(tokenKey);
             if(StringUtils.isBlank(tokenRedis)){

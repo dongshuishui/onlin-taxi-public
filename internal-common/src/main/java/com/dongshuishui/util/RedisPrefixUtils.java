@@ -28,8 +28,8 @@ public class RedisPrefixUtils {
      * @param identity 身份标识 乘客是1，司机是2；
      * @return
      */
-    public static String genertorTokenKey(String phone, String identity){
-        return tokenPrefix + phone + "-" + identity;
+    public static String genertorTokenKey(String phone, String identity, String tokenType){
+        return tokenPrefix + phone + "-" + identity + "-" + tokenType;
     }
 
 }
