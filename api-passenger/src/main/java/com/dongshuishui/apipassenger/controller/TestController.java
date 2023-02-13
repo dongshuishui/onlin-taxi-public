@@ -30,7 +30,7 @@ public class TestController {
      * 不需要token
      * @return
      */
-    @GetMapping("noAuthTest")
+    @GetMapping("noauthTest")
     public ResponseResult noAuthTest(){
         return ResponseResult.success("no auth test");
     }
