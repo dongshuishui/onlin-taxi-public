@@ -2,7 +2,9 @@ package com.dongshuishui.servicemap.service;
 
 import com.dongshuishui.internalcommon.dto.ResponseResult;
 import com.dongshuishui.response.DirectionResponse;
+import com.dongshuishui.servicemap.remote.MapDirectionClient;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -15,6 +17,8 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class DirectionService {
 
+    @Autowired
+    private MapDirectionClient mapDirectionClient;
     /**
      * 根据起点和终点经纬度来获取距离和时长
      * @param depLongitude
@@ -24,9 +28,9 @@ public class DirectionService {
      * @return
      */
     public ResponseResult driving(String depLongitude, String depLatitude, String destLongitude, String destLatitude){
-        DirectionResponse directionResponse = new DirectionResponse();
-        directionResponse.setDistance(123);
-        directionResponse.setDuration(11);
-        return ResponseResult.success(directionResponse);
+        //调用第三方地图接口
+        DirectionResponse direction = mapDirectionClient.direction(depLongitude, depLatitude, destLongitude, destLatitude);
+
+        return ResponseResult.success(direction);
     }
 }
