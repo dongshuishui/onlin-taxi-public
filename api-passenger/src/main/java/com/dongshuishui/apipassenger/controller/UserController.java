@@ -25,8 +25,6 @@ public class UserController {
 
         //从http请求中，获取accesstoken
         String accessToken = request.getHeader("Authorization");
-
-
         return userService.getUserAccessToken(accessToken);
 
     }
