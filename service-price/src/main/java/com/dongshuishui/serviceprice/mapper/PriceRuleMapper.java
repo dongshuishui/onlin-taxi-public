@@ -2,6 +2,7 @@ package com.dongshuishui.serviceprice.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.dongshuishui.internalcommon.dto.PriceRule;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
  * @Author: 东水水
