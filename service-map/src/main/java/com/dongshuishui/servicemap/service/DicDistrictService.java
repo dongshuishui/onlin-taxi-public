@@ -2,6 +2,8 @@ package com.dongshuishui.servicemap.service;
 
 import com.dongshuishui.internalcommon.constant.AmapConfigConstants;
 import com.dongshuishui.internalcommon.dto.ResponseResult;
+import com.dongshuishui.servicemap.remote.MapDicDistrictClient;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -13,21 +15,16 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class DicDistrictService {
-    @Value("${amap.key}")
-    private String key;
-    public ResponseResult initDicDistrict(String keywords){
-        //https://restapi.amap.com/v3/config/district?keywords=北京&subdistrict=2&key=<用户的key>
-        //拼装请求url
-        StringBuilder urlBuilder = new StringBuilder();
-        urlBuilder.append(AmapConfigConstants.DISTRICT_RUL);
-        urlBuilder.append("?");
-        urlBuilder.append("keywords=" + keywords);
-        urlBuilder.append("&");
-        urlBuilder.append("subdistrict=3");
-        urlBuilder.append("&");
-        urlBuilder.append("key=" + key);
+    @Autowired
+    private MapDicDistrictClient mapDicDistrictClient;
 
+
+    public ResponseResult initDicDistrict(String keywords){
+        //请求地图
+        String dicDistrict = mapDicDistrictClient.dicDistrict(keywords);
+        System.out.println(dicDistrict);
         //解析结果
+
 
         //插入数据库
 
