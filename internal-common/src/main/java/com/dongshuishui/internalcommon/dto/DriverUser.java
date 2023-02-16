@@ -3,6 +3,7 @@ package com.dongshuishui.internalcommon.dto;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -16,7 +17,7 @@ public class DriverUser {
     /**
      * 主键
      */
-    private Integer id;
+    private Long id;
     /**
      * 驾驶员注册地行政代码
      */
@@ -119,11 +120,11 @@ public class DriverUser {
     /**
      * 创建时间
      */
-    private Date gmtCreate; 
+    private LocalDateTime gmtCreate;
     /**
      * 修改时间
      */
-    private Date gmtModified; 
+    private LocalDateTime gmtModified;
 
 
 }
