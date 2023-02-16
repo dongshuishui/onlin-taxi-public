@@ -2,6 +2,7 @@ package com.dongshuishui.internalcommon.dto;
 
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -35,7 +36,7 @@ public class DriverUser {
     /**
      * 驾驶员出生日期
      */
-    private Date driverBirthday; 
+    private LocalDate driverBirthday;
     /**
      * 驾驶员民族
      */
@@ -51,15 +52,15 @@ public class DriverUser {
     /**
      * 初次领取机动车驾驶证日期
      */
-    private Date getDriverLicenseDate; 
+    private LocalDate getDriverLicenseDate;
     /**
      * 机动车驾驶证有效期限起
      */
-    private Date driverLicenseOn;
+    private LocalDate driverLicenseOn;
     /**
      * 机动车驾驶证有效期限止
      */
-    private Date driverLicenseOff; 
+    private LocalDate driverLicenseOff;
     /**
      * 是否巡游出租车驾驶员，1：是，0：否
      */
@@ -75,23 +76,23 @@ public class DriverUser {
     /**
      * 网络预约出租汽车驾驶员资格证发证日期
      */
-    private Date networkCarIssueDate; 
+    private LocalDate networkCarIssueDate;
     /**
      * 初次领取网络预约出租汽车驾驶员资格证日期
      */
-    private Date getNetworkCarProofDate; 
+    private LocalDate getNetworkCarProofDate;
     /**
      * 网络预约出租汽车驾驶员资格证有效起始日期
      */
-    private Date networkCarProofOn; 
+    private LocalDate networkCarProofOn;
     /**
      *网络预约出租汽车驾驶员资格证有效截止日期
      */
-    private Date networkCarProofOff; 
+    private LocalDate networkCarProofOff;
     /**
      * 报备日期
      */
-    private Date registerDate; 
+    private LocalDate registerDate;
     /**
      * 服务类型，1：网络预约出租汽车，2：巡游出租汽车，3：私人小客车合乘
      */
@@ -103,15 +104,18 @@ public class DriverUser {
     /**
      * 驾驶员合同（或协议）有效期起
      */
-    private Date contractOn; 
+    private LocalDate contractOn;
     /**
      * 驾驶员合同（或协议）有效期止
      */
-    private Date contractOff; 
+    private LocalDate contractOff;
     /**
      * 驾驶员状态。0：有效，1：失效
      */
-    private Integer state; 
+    private Integer state;
+
+
+
     /**
      * 创建时间
      */
