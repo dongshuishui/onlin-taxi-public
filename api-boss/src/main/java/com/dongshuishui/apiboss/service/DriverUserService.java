@@ -19,7 +19,10 @@ public class DriverUserService {
     private ServiceDriverUserClients serviceDriverUserClients;
 
     public ResponseResult addDriverUser(DriverUser driverUser){
-
         return serviceDriverUserClients.addDriverUser(driverUser);
+    }
+
+    public ResponseResult updateDriverUser(DriverUser driverUser){
+        return serviceDriverUserClients.updateDriverUser(driverUser);
     }
 }
