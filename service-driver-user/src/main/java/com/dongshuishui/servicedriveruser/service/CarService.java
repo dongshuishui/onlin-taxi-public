@@ -1,5 +1,9 @@
 package com.dongshuishui.servicedriveruser.service;
 
+import com.dongshuishui.internalcommon.dto.Car;
+import com.dongshuishui.internalcommon.dto.ResponseResult;
+import com.dongshuishui.servicedriveruser.mapper.CarMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -10,5 +14,13 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class CarService {
+
+    @Autowired
+    private CarMapper carMapper;
+
+    public ResponseResult addCar(Car car){
+        carMapper.insert(car);
+        return ResponseResult.success("");
+    }
 
 }

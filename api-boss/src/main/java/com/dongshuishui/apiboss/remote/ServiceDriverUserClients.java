@@ -1,5 +1,6 @@
 package com.dongshuishui.apiboss.remote;
 
+import com.dongshuishui.internalcommon.dto.Car;
 import com.dongshuishui.internalcommon.dto.DriverUser;
 import com.dongshuishui.internalcommon.dto.ResponseResult;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -22,4 +23,10 @@ public interface ServiceDriverUserClients {
 
     @RequestMapping(method = RequestMethod.PUT, value = "/user")
     public ResponseResult updateDriverUser(@RequestBody DriverUser driverUser);
+
+    @RequestMapping(method = RequestMethod.POST, value = "/car")
+    public ResponseResult addCar(@RequestBody Car car);
+
+    @RequestMapping(method = RequestMethod.PUT, value = "/car")
+    public ResponseResult updateCar(@RequestBody Car car);
 }

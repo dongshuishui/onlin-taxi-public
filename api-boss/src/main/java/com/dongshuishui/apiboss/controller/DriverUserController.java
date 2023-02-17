@@ -1,6 +1,8 @@
 package com.dongshuishui.apiboss.controller;
 
+import com.dongshuishui.apiboss.service.CarService;
 import com.dongshuishui.apiboss.service.DriverUserService;
+import com.dongshuishui.internalcommon.dto.Car;
 import com.dongshuishui.internalcommon.dto.DriverUser;
 import com.dongshuishui.internalcommon.dto.ResponseResult;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,9 @@ public class DriverUserController {
     @Autowired
     private DriverUserService driverUserService;
 
+    @Autowired
+    private CarService carService;
+
     /**
      * 添加司机
      * @param driverUser
@@ -36,9 +41,16 @@ public class DriverUserController {
      * @param driverUser
      * @return
      */
-
     @PutMapping("/driver-user")
     public ResponseResult updateDriver(@RequestBody DriverUser driverUser){
         return driverUserService.updateDriverUser(driverUser);
     }
+
+    @PostMapping("/car")
+    public ResponseResult addCar(@RequestBody Car car){
+        return carService.addCar(car);
+    }
+
+
+
 }
