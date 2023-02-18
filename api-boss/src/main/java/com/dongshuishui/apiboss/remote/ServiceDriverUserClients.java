@@ -1,6 +1,7 @@
 package com.dongshuishui.apiboss.remote;
 
 import com.dongshuishui.internalcommon.dto.Car;
+import com.dongshuishui.internalcommon.dto.DriverCarBindingRelationship;
 import com.dongshuishui.internalcommon.dto.DriverUser;
 import com.dongshuishui.internalcommon.dto.ResponseResult;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -19,14 +20,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public interface ServiceDriverUserClients {
 
     @RequestMapping(method = RequestMethod.POST, value = "/user")
-    public ResponseResult addDriverUser(@RequestBody DriverUser driverUser);
+    ResponseResult addDriverUser(@RequestBody DriverUser driverUser);
 
     @RequestMapping(method = RequestMethod.PUT, value = "/user")
-    public ResponseResult updateDriverUser(@RequestBody DriverUser driverUser);
+    ResponseResult updateDriverUser(@RequestBody DriverUser driverUser);
 
     @RequestMapping(method = RequestMethod.POST, value = "/car")
-    public ResponseResult addCar(@RequestBody Car car);
+    ResponseResult addCar(@RequestBody Car car);
 
-    @RequestMapping(method = RequestMethod.PUT, value = "/car")
-    public ResponseResult updateCar(@RequestBody Car car);
+    @RequestMapping(method = RequestMethod.POST, value = "//driver-car-binding-relationship/bind")
+    ResponseResult bind(@RequestBody DriverCarBindingRelationship driverCarBindingRelationship);
+
+    @RequestMapping(method = RequestMethod.POST, value = "//driver-car-binding-relationship/unbind")
+    ResponseResult unbind(DriverCarBindingRelationship driverCarBindingRelationship);
 }

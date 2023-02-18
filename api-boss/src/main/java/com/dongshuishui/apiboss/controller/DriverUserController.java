@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class DriverUserController {
-
     @Autowired
     private DriverUserService driverUserService;
 
