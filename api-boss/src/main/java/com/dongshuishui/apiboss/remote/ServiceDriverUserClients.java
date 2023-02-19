@@ -28,9 +28,9 @@ public interface ServiceDriverUserClients {
     @RequestMapping(method = RequestMethod.POST, value = "/car")
     ResponseResult addCar(@RequestBody Car car);
 
-    @RequestMapping(method = RequestMethod.POST, value = "//driver-car-binding-relationship/bind")
+    @RequestMapping(method = RequestMethod.POST, value = "/driver-car-binding-relationship/bind")
     ResponseResult bind(@RequestBody DriverCarBindingRelationship driverCarBindingRelationship);
 
-    @RequestMapping(method = RequestMethod.POST, value = "//driver-car-binding-relationship/unbind")
-    ResponseResult unbind(DriverCarBindingRelationship driverCarBindingRelationship);
+    @RequestMapping(method = RequestMethod.POST, value = "/driver-car-binding-relationship/unbind")
+    ResponseResult unbind(@RequestBody DriverCarBindingRelationship driverCarBindingRelationship);
 }
