@@ -51,13 +51,13 @@ public class VerificationCodeService {
         //返回值
         return ResponseResult.success("");
     }
+
     /**
      * 校验验证码
      * @param passengerPhone 乘客手机号
      * @param verificationCode 验证码
      * @return
      */
-
     public ResponseResult checkVerificationCode(String passengerPhone, String verificationCode){
         //根据手机号，到redis读取验证码
         System.out.println("根据手机号，到redis读取验证码");
