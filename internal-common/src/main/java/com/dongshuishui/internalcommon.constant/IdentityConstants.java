@@ -6,11 +6,11 @@ package com.dongshuishui.internalcommon.constant;
  * @Description: com.dongshuishui.internalcommon.constant
  * @Version: 1.0
  */
-public class IndentityConstants {
+public class IdentityConstants {
     //乘客身份
-    public static final String PASSENGER_INDENTITY = "1";
+    public static final String PASSENGER_IDENTITY = "1";
 
     //司机身份
-    public static final String DRIVER_INDENTITY = "2";
+    public static final String DRIVER_IDENTITY = "2";
 
 }
