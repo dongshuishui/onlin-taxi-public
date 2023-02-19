@@ -47,6 +47,7 @@ public enum CommonStatusEnum {
     CAR_BIND_EXISTS(1503,"车辆被绑定了，请勿重复绑定"),
 
 
+
     //成功
     SUCCESS(1,"success"),
 
