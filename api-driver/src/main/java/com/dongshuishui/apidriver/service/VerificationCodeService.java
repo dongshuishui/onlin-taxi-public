@@ -37,6 +37,12 @@ public class VerificationCodeService {
 
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
+
+    /**
+     * 检查手机是否存在同时发送验证码
+     * @param driverPhone
+     * @return
+     */
     public ResponseResult checkAndSendVerificationCode(String driverPhone){
         //查询 service-driver-user，该手机是否存在
         ResponseResult<DriverUserExistsResponse> driverUserExistsResponseResponseResult = serviceDriverUserClient.checkDriver(driverPhone);

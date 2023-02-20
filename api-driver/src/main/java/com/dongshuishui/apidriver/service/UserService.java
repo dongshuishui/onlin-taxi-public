@@ -17,6 +17,12 @@ public class UserService {
 
     @Autowired
     private ServiceDriverUserClient serviceDriverUserClient;
+
+    /**
+     * 修改司机信息
+     * @param driverUser
+     * @return
+     */
     public ResponseResult udpateUser(DriverUser driverUser){
         return serviceDriverUserClient.updateUser(driverUser);
     }

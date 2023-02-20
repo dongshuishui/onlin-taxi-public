@@ -19,6 +19,11 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    /**
+     * 司机修改司机自己的信息
+     * @param driverUser
+     * @return
+     */
     @PutMapping("/user")
     public ResponseResult updateUser(@RequestBody DriverUser driverUser){
         return userService.udpateUser(driverUser);

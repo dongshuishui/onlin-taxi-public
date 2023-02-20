@@ -21,6 +21,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class VerificationCodeController {
     @Autowired
     private VerificationCodeService verificationCodeService;
+
+    /**
+     * 司机获取验证码
+     * @param verificationCodeDTO
+     * @return
+     */
     @GetMapping("/verification-code")
     public ResponseResult verificationCode(@RequestBody VerificationCodeDTO verificationCodeDTO){
         String driverPhone = verificationCodeDTO.getDriverPhone();
@@ -28,6 +34,11 @@ public class VerificationCodeController {
         return verificationCodeService.checkAndSendVerificationCode(driverPhone);
     }
 
+    /**
+     * 校验司机验证码
+     * @param verificationCodeDTO
+     * @return
+     */
     @PostMapping("/verification-code-check")
     public ResponseResult checkVerificationCode(@RequestBody VerificationCodeDTO verificationCodeDTO){
         String driverPhone = verificationCodeDTO.getDriverPhone();
