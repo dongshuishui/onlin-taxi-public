@@ -17,3 +17,5 @@ spring:
 # 自定义的放在后面
 amap:
   key: fac7e9d39088e3e11b36a56c3671ad69
+  # 服务id  服务名称：测试服务3
+  sid: 883396
