@@ -34,9 +34,10 @@ public class CarService {
         LocalDateTime now = LocalDateTime.now();
         car.setGmtCreate(now);
         car.setGmtModified(now);
-        String name = car.getVehicleNo();
+        //保存id
+        carMapper.insert(car);
         //获取此车辆对应的终端id：tid
-        ResponseResult<TerminalResponse> terminalResult = serviceMapClient.addTerminal(car.getVehicleNo());
+        ResponseResult<TerminalResponse> terminalResult = serviceMapClient.addTerminal(car.getVehicleNo(),car.getId() + "");
         String tid = terminalResult.getData().getTid();
         car.setTid(tid);
 
@@ -46,8 +47,7 @@ public class CarService {
         String trname = trackTesponseResponseResult.getData().getTrname();
         car.setTrid(trid);
         car.setTrname(trname);
-
-        carMapper.insert(car);
+        carMapper.updateById(car);
         return ResponseResult.success("");
     }
 
