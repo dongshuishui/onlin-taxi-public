@@ -23,7 +23,7 @@ public class TerminalController {
     private TerminalService terminalService;
 
     @PostMapping("/add")
-    public ResponseResult add(String name){
-        return terminalService.add(name);
+    public ResponseResult add(String name, String desc){
+        return terminalService.add(name,desc);
     }
 }
