@@ -1,9 +1,12 @@
 package com.dongshuishui.apidriver.service;
 
 import com.dongshuishui.apidriver.remote.ServiceDriverUserClient;
+import com.dongshuishui.apidriver.remote.ServiceMapClient;
 import com.dongshuishui.internalcommon.dto.Car;
 import com.dongshuishui.internalcommon.dto.ResponseResult;
 import com.dongshuishui.request.ApiDriverPointRequest;
+import com.dongshuishui.request.PointDTO;
+import com.dongshuishui.request.PointRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,8 +22,10 @@ import javax.xml.ws.Response;
 public class PointService {
 
     @Autowired
+    private ServiceMapClient serviceMapClient;
+    @Autowired
     private ServiceDriverUserClient serviceDriverUserClient;
-    public ResponseResult uploa(ApiDriverPointRequest apiDriverPointRequest){
+    public ResponseResult upload(ApiDriverPointRequest apiDriverPointRequest){
         //获取carId
         Long carId = apiDriverPointRequest.getCarId();
         //通过carId获取tid，trid  调用service-driver-user的接口
@@ -30,7 +35,12 @@ public class PointService {
         String trid = car.getTrid();
 
         //调用地图上传
+        PointRequest request = new PointRequest();
+        PointDTO[] points = apiDriverPointRequest.getPoints();
+        request.setTid(tid);
+        request.setTrid(trid);
+        request.setPoints(points);
 
-        return ResponseResult.success("");
+        return serviceMapClient.upload(request);
     }
 }
