@@ -1,5 +1,6 @@
 package com.dongshuishui.apidriver.remote;
 
+import com.dongshuishui.internalcommon.dto.Car;
 import com.dongshuishui.internalcommon.dto.DriverUser;
 import com.dongshuishui.internalcommon.dto.ResponseResult;
 import com.dongshuishui.response.DriverUserExistsResponse;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * @Author: 东水水
@@ -23,4 +25,7 @@ public interface ServiceDriverUserClient {
 
     @RequestMapping(method = RequestMethod.GET, value = "/check-driver/{driverPhone}")
     ResponseResult<DriverUserExistsResponse> checkDriver(@PathVariable("driverPhone") String driverPhone);
+
+    @RequestMapping(method = RequestMethod.GET, value = "/car")
+    ResponseResult<Car> getCarById(@RequestParam Long carId);
 }
