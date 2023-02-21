@@ -28,6 +28,12 @@ public class AmapConfigConstants {
     public static final String TERMINAL_ADD_RUL = "https://tsapi.amap.com/v1/track/terminal/add";
 
     /**
+     * 猎鹰-创建终端轨迹地址
+     */
+    public static final String TRACK_ADD_RUL = "https://tsapi.amap.com/v1/track/trace/add";
+
+
+    /**
      * 路径规划key值
      */
     public static final String STATUS = "status";

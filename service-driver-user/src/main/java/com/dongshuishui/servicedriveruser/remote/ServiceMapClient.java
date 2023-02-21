@@ -17,4 +17,6 @@ public interface ServiceMapClient {
 
     @RequestMapping(method = RequestMethod.POST, value = "/terminal/add")
     public ResponseResult<TerminalResponse> addTerminal(String name);
+
+    
 }
