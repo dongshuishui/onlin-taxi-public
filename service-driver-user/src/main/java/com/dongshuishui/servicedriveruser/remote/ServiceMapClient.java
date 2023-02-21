@@ -2,9 +2,12 @@ package com.dongshuishui.servicedriveruser.remote;
 
 import com.dongshuishui.internalcommon.dto.ResponseResult;
 import com.dongshuishui.response.TerminalResponse;
+import com.dongshuishui.response.TrackTesponse;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * @Author: 东水水
@@ -16,7 +19,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public interface ServiceMapClient {
 
     @RequestMapping(method = RequestMethod.POST, value = "/terminal/add")
-    public ResponseResult<TerminalResponse> addTerminal(String name);
+    public ResponseResult<TerminalResponse> addTerminal(@RequestParam String name);
 
-    
+    @RequestMapping(method = RequestMethod.POST, value = "/track/add")
+    public ResponseResult<TrackTesponse> addTrack(@RequestParam String tid);
 }
