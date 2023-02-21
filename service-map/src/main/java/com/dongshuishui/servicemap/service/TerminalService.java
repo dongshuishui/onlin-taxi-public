@@ -1,9 +1,12 @@
 package com.dongshuishui.servicemap.service;
 
 import com.dongshuishui.internalcommon.dto.ResponseResult;
+import com.dongshuishui.response.TerminalResponse;
 import com.dongshuishui.servicemap.remote.TerminalClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @Author: 东水水
@@ -25,5 +28,9 @@ public class TerminalService {
     public ResponseResult add(String name, String desc){
 
         return terminalClient.add(name, desc);
+    }
+
+    public ResponseResult<List<TerminalResponse>> aroundsearch(String center, Integer radius){
+        return terminalClient.aroundsearch(center, radius);
     }
 }

@@ -33,10 +33,16 @@ public class AmapConfigConstants {
     public static final String TRACK_ADD_RUL = "https://tsapi.amap.com/v1/track/trace/add";
 
     /**
-     * 轨迹点上传（单点、批量）
+     * 猎鹰-轨迹点上传（单点、批量）地址
      */
 
     public static final String POINT_UPLOAD = "https://tsapi.amap.com/v1/track/point/upload";
+
+    /**
+     * 猎鹰-周边搜索终端地址
+     */
+    public static final String TERMINAL_AROUND_SEARCH = "https://tsapi.amap.com/v1/track/terminal/aroundsearch";
+
 
 
     /**

@@ -1,6 +1,7 @@
 package com.dongshuishui.servicemap.controller;
 
 import com.dongshuishui.internalcommon.dto.ResponseResult;
+import com.dongshuishui.response.TerminalResponse;
 import com.dongshuishui.servicemap.service.TerminalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.xml.ws.Response;
+import java.util.List;
 
 /**
  * @Author: 东水水
@@ -25,5 +27,11 @@ public class TerminalController {
     @PostMapping("/add")
     public ResponseResult add(String name, String desc){
         return terminalService.add(name,desc);
+    }
+
+    @PostMapping("/aroundsearch")
+    public ResponseResult<List<TerminalResponse>> aroundsearch(String center, Integer radius){
+
+        return terminalService.aroundsearch(center, radius);
     }
 }

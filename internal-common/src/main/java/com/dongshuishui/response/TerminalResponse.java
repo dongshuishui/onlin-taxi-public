@@ -13,4 +13,6 @@ public class TerminalResponse {
     private String name;
     private String tid;
     private String sid;
+
+    private Long carId;
 }
