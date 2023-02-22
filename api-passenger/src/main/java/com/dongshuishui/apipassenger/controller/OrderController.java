@@ -1,6 +1,7 @@
 package com.dongshuishui.apipassenger.controller;
 
 import com.dongshuishui.apipassenger.service.OrderService;
+import com.dongshuishui.internalcommon.dto.OrderInfo;
 import com.dongshuishui.internalcommon.dto.ResponseResult;
 import com.dongshuishui.internalcommon.request.OrderRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,7 @@ public class OrderController {
      * @return
      */
     @PostMapping("/add")
-    public ResponseResult add(@RequestBody OrderRequest orderRequest){
-        return orderService.add(orderRequest);
+    public ResponseResult add(@RequestBody OrderInfo orderInfo){
+        return orderService.add(orderInfo);
     }
 }

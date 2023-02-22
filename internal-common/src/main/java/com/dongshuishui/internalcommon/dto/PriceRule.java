@@ -2,19 +2,25 @@ package com.dongshuishui.internalcommon.dto;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
- * @Author: 东水水
- * @Date: 2023/2/14  22:44
- * @Description: com.dongshuishui.internalcommon.dto
- * @Version: 1.0
+ * <p>
+ *
+ * </p>
+ *
+ * @author 东水水
+ * @since 2023-02-22
  */
 @Data
-public class PriceRule {
+public class PriceRule implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     /**
      * 城市代码
      */
-    private String  cityCode;
+    private String cityCode;
 
     /**
      * 车辆类型
@@ -40,4 +46,14 @@ public class PriceRule {
      * 计程单价（按分钟），单位：元
      */
     private Double unitPricePerMinute;
+
+    /**
+     * 运价类型编码
+     */
+    private String fareType;
+
+    /**
+     * 版本
+     */
+    private Integer fareVersion;
 }

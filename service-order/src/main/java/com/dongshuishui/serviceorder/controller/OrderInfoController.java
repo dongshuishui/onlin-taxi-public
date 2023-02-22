@@ -1,6 +1,7 @@
 package com.dongshuishui.serviceorder.controller;
 
 
+import com.dongshuishui.internalcommon.dto.OrderInfo;
 import com.dongshuishui.internalcommon.dto.ResponseResult;
 import com.dongshuishui.internalcommon.request.OrderRequest;
 import com.dongshuishui.serviceorder.service.OrderInfoService;
@@ -30,13 +31,12 @@ public class OrderInfoController {
 
     /**
      * 新增订单
-     * @param orderRequest
+     * @param orderInfo
      * @return
      */
     @PostMapping("/add")
-    public ResponseResult add(@RequestBody OrderRequest orderRequest){
-        log.info("service-order:" + orderRequest.getAddress() );
-        System.out.println(orderRequest.getAddress());
-        return orderInfoService.add(orderRequest);
+    public ResponseResult add(@RequestBody OrderInfo orderInfo){
+        log.info("service-order:" + orderInfo.getAddress() );
+        return orderInfoService.add(orderInfo);
     }
 }

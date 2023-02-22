@@ -2,11 +2,14 @@ package com.dongshuishui.serviceorder.service;
 
 import com.dongshuishui.internalcommon.dto.ResponseResult;
 import com.dongshuishui.internalcommon.request.OrderRequest;
+import com.dongshuishui.internalcommon.constant.OrderConstants;
 import com.dongshuishui.internalcommon.dto.OrderInfo;
 import com.dongshuishui.serviceorder.mapper.OrderInfoMapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
 
 /**
  * <p>
@@ -23,12 +26,17 @@ public class OrderInfoService {
 
     /**
      * 新增订单
-     * @param orderRequest
+     * @param orderInfo
      * @return
      */
-    public ResponseResult add(OrderRequest orderRequest) {
-        OrderInfo orderInfo = new OrderInfo();
-        BeanUtils.copyProperties(orderRequest, orderInfo);
+    public ResponseResult add(OrderInfo orderInfo) {
+
+        orderInfo.setOrderStatus(OrderConstants.ORDER_START);
+
+        LocalDateTime now = LocalDateTime.now();
+        orderInfo.setGmtCreate(now);
+        orderInfo.setGmtModified(now);
+
 
         orderInfoMapper.insert(orderInfo);
         return ResponseResult.success("");

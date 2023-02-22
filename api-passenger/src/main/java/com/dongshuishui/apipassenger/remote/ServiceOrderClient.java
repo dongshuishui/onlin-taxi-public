@@ -1,5 +1,6 @@
 package com.dongshuishui.apipassenger.remote;
 
+import com.dongshuishui.internalcommon.dto.OrderInfo;
 import com.dongshuishui.internalcommon.dto.ResponseResult;
 import com.dongshuishui.internalcommon.request.OrderRequest;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -20,9 +21,9 @@ public interface ServiceOrderClient {
     /**
      * 调用service-order服务的/order/add接口<br/>
      * 新增订单接口
-     * @param orderRequest
+     * @param orderInfo
      * @return
      */
     @RequestMapping(method = RequestMethod.POST, value = "/order/add")
-    ResponseResult add(@RequestBody OrderRequest orderRequest);
+    ResponseResult add(@RequestBody OrderInfo orderInfo);
 }

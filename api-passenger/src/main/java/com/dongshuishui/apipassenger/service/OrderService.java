@@ -1,6 +1,7 @@
 package com.dongshuishui.apipassenger.service;
 
 import com.dongshuishui.apipassenger.remote.ServiceOrderClient;
+import com.dongshuishui.internalcommon.dto.OrderInfo;
 import com.dongshuishui.internalcommon.dto.ResponseResult;
 import com.dongshuishui.internalcommon.request.OrderRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +21,10 @@ public class OrderService {
 
     /**
      * 创建订单
-     * @param orderRequest
+     * @param orderInfo
      * @return
      */
-    public ResponseResult add(OrderRequest orderRequest){
-        return serviceOrderClient.add(orderRequest);
+    public ResponseResult add(OrderInfo orderInfo){
+        return serviceOrderClient.add(orderInfo);
     };
 }

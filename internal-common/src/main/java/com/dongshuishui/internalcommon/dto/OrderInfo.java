@@ -1,5 +1,6 @@
 package com.dongshuishui.internalcommon.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -58,11 +59,13 @@ public class OrderInfo implements Serializable {
     /**
      * 订单发起时间
      */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime orderTime;
 
     /**
      * 预计用车时间
      */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime departTime;
 
     /**
@@ -105,6 +108,9 @@ public class OrderInfo implements Serializable {
      */
     private String fareType;
 
+    /**
+     * 运价版本
+     */
     private Integer fareVersion;
 
     /**
