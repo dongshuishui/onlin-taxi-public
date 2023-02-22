@@ -28,6 +28,9 @@ public enum CommonStatusEnum {
      */
     PRICE_RULE_EMPTY(1300,"计价规则不存在"),
 
+    PRICE_RULE_EXISTS(1301,"计价规制已存在，不允许添加"),
+
+    PRICE_RULE_NOT_EDIT(1302,"计价规制没有变化"),
     /**
      * 地图信息：1400-1499
      */
@@ -45,6 +48,7 @@ public enum CommonStatusEnum {
     DRIVER_BIND_EXISTS(1503,"司机被绑定了，请勿重复绑定"),
 
     CAR_BIND_EXISTS(1503,"车辆被绑定了，请勿重复绑定"),
+
 
 
 
