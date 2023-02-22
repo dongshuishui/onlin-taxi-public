@@ -28,6 +28,11 @@ public class OrderInfoController {
     @Autowired
     private OrderInfoService orderInfoService;
 
+    /**
+     * 新增订单
+     * @param orderRequest
+     * @return
+     */
     @PostMapping("/add")
     public ResponseResult add(@RequestBody OrderRequest orderRequest){
         log.info("service-order:" + orderRequest.getAddress() );
