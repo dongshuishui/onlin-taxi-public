@@ -2,10 +2,8 @@ package com.dongshuishui.servicemap.remote;
 
 import com.dongshuishui.internalcommon.constant.AmapConfigConstants;
 import com.dongshuishui.internalcommon.dto.ResponseResult;
-import com.dongshuishui.response.TerminalResponse;
-import com.dongshuishui.response.TrackTesponse;
+import com.dongshuishui.internalcommon.reponse.TrackTesponse;
 import net.sf.json.JSONObject;
-import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;

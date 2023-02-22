@@ -2,9 +2,8 @@ package com.dongshuishui.apipassenger.controller;
 
 import com.dongshuishui.apipassenger.service.ForecastPriceService;
 import com.dongshuishui.internalcommon.dto.ResponseResult;
-import com.dongshuishui.request.ForecastPriceDTO;
+import com.dongshuishui.internalcommon.request.ForecastPriceDTO;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

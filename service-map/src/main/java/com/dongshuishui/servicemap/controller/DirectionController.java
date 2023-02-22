@@ -1,7 +1,7 @@
 package com.dongshuishui.servicemap.controller;
 
 import com.dongshuishui.internalcommon.dto.ResponseResult;
-import com.dongshuishui.request.ForecastPriceDTO;
+import com.dongshuishui.internalcommon.request.ForecastPriceDTO;
 import com.dongshuishui.servicemap.service.DirectionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

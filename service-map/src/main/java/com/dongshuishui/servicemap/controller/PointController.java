@@ -1,7 +1,7 @@
 package com.dongshuishui.servicemap.controller;
 
 import com.dongshuishui.internalcommon.dto.ResponseResult;
-import com.dongshuishui.request.PointRequest;
+import com.dongshuishui.internalcommon.request.PointRequest;
 import com.dongshuishui.servicemap.service.PointService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;

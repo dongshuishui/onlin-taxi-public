@@ -1,7 +1,7 @@
 package com.dongshuishui.apipassenger.remote;
 
 import com.dongshuishui.internalcommon.dto.ResponseResult;
-import com.dongshuishui.request.VerificationCodeDTO;
+import com.dongshuishui.internalcommon.request.VerificationCodeDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;

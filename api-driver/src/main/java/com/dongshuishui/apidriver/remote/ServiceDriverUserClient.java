@@ -3,7 +3,7 @@ package com.dongshuishui.apidriver.remote;
 import com.dongshuishui.internalcommon.dto.Car;
 import com.dongshuishui.internalcommon.dto.DriverUser;
 import com.dongshuishui.internalcommon.dto.ResponseResult;
-import com.dongshuishui.response.DriverUserExistsResponse;
+import com.dongshuishui.internalcommon.reponse.DriverUserExistsResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;

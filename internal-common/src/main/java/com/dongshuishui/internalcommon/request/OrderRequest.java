@@ -1,4 +1,4 @@
-package com.dongshuishui.request;
+package com.dongshuishui.internalcommon.request;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;

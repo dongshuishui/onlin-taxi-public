@@ -1,7 +1,7 @@
 package com.dongshuishui.servicemap.service;
 
 import com.dongshuishui.internalcommon.dto.ResponseResult;
-import com.dongshuishui.request.PointRequest;
+import com.dongshuishui.internalcommon.request.PointRequest;
 import com.dongshuishui.servicemap.remote.PointClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

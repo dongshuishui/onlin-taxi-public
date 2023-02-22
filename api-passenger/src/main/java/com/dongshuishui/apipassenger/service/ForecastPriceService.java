@@ -2,8 +2,8 @@ package com.dongshuishui.apipassenger.service;
 
 import com.dongshuishui.apipassenger.remote.ServicePriceClient;
 import com.dongshuishui.internalcommon.dto.ResponseResult;
-import com.dongshuishui.request.ForecastPriceDTO;
-import com.dongshuishui.response.ForecastPriceResponse;
+import com.dongshuishui.internalcommon.request.ForecastPriceDTO;
+import com.dongshuishui.internalcommon.reponse.ForecastPriceResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

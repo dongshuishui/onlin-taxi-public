@@ -2,7 +2,7 @@ package com.dongshuishui.apidriver.controller;
 
 import com.dongshuishui.apidriver.service.VerificationCodeService;
 import com.dongshuishui.internalcommon.dto.ResponseResult;
-import com.dongshuishui.request.VerificationCodeDTO;
+import com.dongshuishui.internalcommon.request.VerificationCodeDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

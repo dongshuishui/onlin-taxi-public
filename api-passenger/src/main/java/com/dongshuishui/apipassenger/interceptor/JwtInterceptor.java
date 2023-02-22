@@ -1,13 +1,10 @@
 package com.dongshuishui.apipassenger.interceptor;
 
-import com.auth0.jwt.exceptions.AlgorithmMismatchException;
-import com.auth0.jwt.exceptions.SignatureVerificationException;
-import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.dongshuishui.internalcommon.constant.TokenConstants;
 import com.dongshuishui.internalcommon.dto.ResponseResult;
 import com.dongshuishui.internalcommon.dto.TokenResult;
-import com.dongshuishui.util.JwtUtils;
-import com.dongshuishui.util.RedisPrefixUtils;
+import com.dongshuishui.internalcommon.util.JwtUtils;
+import com.dongshuishui.internalcommon.util.RedisPrefixUtils;
 import net.sf.json.JSONObject;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;

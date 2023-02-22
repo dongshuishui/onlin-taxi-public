@@ -4,13 +4,11 @@ import com.dongshuishui.apidriver.remote.ServiceDriverUserClient;
 import com.dongshuishui.apidriver.remote.ServiceMapClient;
 import com.dongshuishui.internalcommon.dto.Car;
 import com.dongshuishui.internalcommon.dto.ResponseResult;
-import com.dongshuishui.request.ApiDriverPointRequest;
-import com.dongshuishui.request.PointDTO;
-import com.dongshuishui.request.PointRequest;
+import com.dongshuishui.internalcommon.request.ApiDriverPointRequest;
+import com.dongshuishui.internalcommon.request.PointDTO;
+import com.dongshuishui.internalcommon.request.PointRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.xml.ws.Response;
 
 /**
  * @Author: 东水水

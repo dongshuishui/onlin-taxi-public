@@ -1,10 +1,9 @@
 package com.dongshuishui.servicepassengeruser.controller;
 
 import com.dongshuishui.internalcommon.dto.ResponseResult;
-import com.dongshuishui.request.VerificationCodeDTO;
+import com.dongshuishui.internalcommon.request.VerificationCodeDTO;
 import com.dongshuishui.servicepassengeruser.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.security.saml2.Saml2RelyingPartyProperties;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;

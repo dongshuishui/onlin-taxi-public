@@ -2,17 +2,14 @@ package com.dongshuishui.servicemap.remote;
 
 import com.dongshuishui.internalcommon.constant.AmapConfigConstants;
 import com.dongshuishui.internalcommon.dto.ResponseResult;
-import com.dongshuishui.request.PointDTO;
-import com.dongshuishui.request.PointRequest;
-import com.dongshuishui.response.TrackTesponse;
-import net.sf.json.JSONObject;
+import com.dongshuishui.internalcommon.request.PointDTO;
+import com.dongshuishui.internalcommon.request.PointRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import javax.xml.ws.Response;
 import java.net.URI;
 
 /**

@@ -1,4 +1,4 @@
-package com.dongshuishui.util;
+package com.dongshuishui.internalcommon.util;
 
 /**
  * @Auther: 东水水

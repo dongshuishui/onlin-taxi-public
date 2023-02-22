@@ -1,4 +1,4 @@
-package com.dongshuishui.util;
+package com.dongshuishui.internalcommon.util;
 
 import java.math.BigDecimal;
 

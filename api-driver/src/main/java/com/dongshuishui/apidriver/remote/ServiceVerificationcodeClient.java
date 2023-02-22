@@ -1,7 +1,7 @@
 package com.dongshuishui.apidriver.remote;
 
 import com.dongshuishui.internalcommon.dto.ResponseResult;
-import com.dongshuishui.response.NumberCodeReponse;
+import com.dongshuishui.internalcommon.reponse.NumberCodeReponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

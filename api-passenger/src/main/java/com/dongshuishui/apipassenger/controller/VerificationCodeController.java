@@ -2,7 +2,7 @@ package com.dongshuishui.apipassenger.controller;
 
 import com.dongshuishui.apipassenger.service.VerificationCodeService;
 import com.dongshuishui.internalcommon.dto.ResponseResult;
-import com.dongshuishui.request.VerificationCodeDTO;
+import com.dongshuishui.internalcommon.request.VerificationCodeDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

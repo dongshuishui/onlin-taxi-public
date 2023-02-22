@@ -1,7 +1,7 @@
 package com.dongshuishui.servicemap.service;
 
 import com.dongshuishui.internalcommon.dto.ResponseResult;
-import com.dongshuishui.response.DirectionResponse;
+import com.dongshuishui.internalcommon.reponse.DirectionResponse;
 import com.dongshuishui.servicemap.remote.MapDirectionClient;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

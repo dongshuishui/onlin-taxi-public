@@ -1,7 +1,7 @@
 package com.dongshuishui.servicemap.service;
 
 import com.dongshuishui.internalcommon.dto.ResponseResult;
-import com.dongshuishui.response.TerminalResponse;
+import com.dongshuishui.internalcommon.reponse.TerminalResponse;
 import com.dongshuishui.servicemap.remote.TerminalClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

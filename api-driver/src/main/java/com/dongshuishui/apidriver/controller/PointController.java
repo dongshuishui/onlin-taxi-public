@@ -2,7 +2,7 @@ package com.dongshuishui.apidriver.controller;
 
 import com.dongshuishui.apidriver.service.PointService;
 import com.dongshuishui.internalcommon.dto.ResponseResult;
-import com.dongshuishui.request.ApiDriverPointRequest;
+import com.dongshuishui.internalcommon.request.ApiDriverPointRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

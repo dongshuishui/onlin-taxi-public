@@ -2,7 +2,7 @@ package com.dongshuishui.servicemap.remote;
 
 import com.dongshuishui.internalcommon.constant.AmapConfigConstants;
 import com.dongshuishui.internalcommon.dto.ResponseResult;
-import com.dongshuishui.response.ServiceResponse;
+import com.dongshuishui.internalcommon.reponse.ServiceResponse;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

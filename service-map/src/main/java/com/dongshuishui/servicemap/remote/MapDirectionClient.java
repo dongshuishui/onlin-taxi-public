@@ -1,8 +1,7 @@
 package com.dongshuishui.servicemap.remote;
 
 import com.dongshuishui.internalcommon.constant.AmapConfigConstants;
-import com.dongshuishui.internalcommon.dto.ResponseResult;
-import com.dongshuishui.response.DirectionResponse;
+import com.dongshuishui.internalcommon.reponse.DirectionResponse;
 import lombok.extern.slf4j.Slf4j;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
