@@ -1,6 +1,7 @@
 package com.dongshuishui.serviceorder.controller;
 
 
+import com.dongshuishui.internalcommon.constant.HeaderParamConstants;
 import com.dongshuishui.internalcommon.dto.OrderInfo;
 import com.dongshuishui.internalcommon.dto.ResponseResult;
 import com.dongshuishui.internalcommon.request.OrderRequest;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * <p>
@@ -35,7 +38,11 @@ public class OrderInfoController {
      * @return
      */
     @PostMapping("/add")
-    public ResponseResult add(@RequestBody OrderInfo orderInfo){
+    public ResponseResult add(@RequestBody OrderInfo orderInfo, HttpServletRequest httpServletRequest){
+        //测试通过，通过head获取deviceCode
+//        String deviceCode = httpServletRequest.getHeader(HeaderParamConstants.DEVICE_CODE);
+//        orderInfo.setDeviceCode(deviceCode);
+
         log.info("service-order:" + orderInfo.getAddress() );
         return orderInfoService.add(orderInfo);
     }

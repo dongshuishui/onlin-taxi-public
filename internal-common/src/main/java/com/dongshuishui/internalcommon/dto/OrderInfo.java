@@ -235,5 +235,10 @@ public class OrderInfo implements Serializable {
      */
     private LocalDateTime gmtModified;
 
+    /**
+     * 请求设备号
+     */
+    private String deviceCode;
+
 
 }

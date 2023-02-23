@@ -12,3 +12,7 @@ spring:
     url: jdbc:mysql://192.168.182.11:3306/service-order?characterEncoding=utf-8&serverTimezne=GMT%2B8
     username: root
     password: 123456
+  redis:
+    host: 192.168.182.30
+    port: 6379
+    database: 0

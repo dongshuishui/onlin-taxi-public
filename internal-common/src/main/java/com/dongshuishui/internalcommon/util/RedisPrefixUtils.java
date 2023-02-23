@@ -11,6 +11,10 @@ public class RedisPrefixUtils {
     //乘客验证码的前缀，获取验证码
     public static String verificationCodePrefix = "verifaiction-code-";
 
+    /**
+     * 黑名单设备号
+     */
+    public static String blackDeviceCodePrefx = "black-device-";
 
     //token存储的前缀
     public static String tokenPrefix = "token-";

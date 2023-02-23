@@ -50,7 +50,12 @@ public enum CommonStatusEnum {
     CAR_BIND_EXISTS(1503,"车辆被绑定了，请勿重复绑定"),
 
 
+    /**
+     * 订单： 1600 - 169
+     */
+    ORDER_NOT_CREATE(1600, "有正在进行的订单"),
 
+    DEVICE_IS_BLACK(1601,"该设备超过下单次数"),
 
     //成功
     SUCCESS(1,"success"),

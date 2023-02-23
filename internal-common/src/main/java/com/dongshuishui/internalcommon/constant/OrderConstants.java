@@ -8,6 +8,10 @@ package com.dongshuishui.internalcommon.constant;
  * @Version: 1.0
  */
 public class OrderConstants {
+    /**
+     * 订单状态 0：订单无效
+     */
+    public static final int ORDER_INVALID = 0;
 
     /**
      * 订单状态 1：订单开始
