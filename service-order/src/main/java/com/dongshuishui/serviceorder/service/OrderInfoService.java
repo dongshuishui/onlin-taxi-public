@@ -51,14 +51,14 @@ public class OrderInfoService {
         if(isOrderGoingon(orderInfo.getPassengerId()) > 0){
             return ResponseResult.fail(CommonStatusEnum.ORDER_NOT_CREATE.getCode(), CommonStatusEnum.ORDER_NOT_CREATE.getValue());
         }
-        /*orderInfo.setOrderStatus(OrderConstants.ORDER_START);
+        orderInfo.setOrderStatus(OrderConstants.ORDER_START);
 
         LocalDateTime now = LocalDateTime.now();
         orderInfo.setGmtCreate(now);
         orderInfo.setGmtModified(now);
 
 
-        orderInfoMapper.insert(orderInfo);*/
+        orderInfoMapper.insert(orderInfo);
         return ResponseResult.success("");
     }
 
