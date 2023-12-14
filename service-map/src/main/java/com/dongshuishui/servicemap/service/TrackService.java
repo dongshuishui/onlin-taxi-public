@@ -24,4 +24,12 @@ public class TrackService {
     public ResponseResult add(String tid){
         return trackClient.add(tid);
     }
+
+    /**
+     * 删除终端轨迹
+     * @return
+     */
+    public ResponseResult delete(String tid,String trid) {
+        return trackClient.delete(tid, trid);
+    }
 }

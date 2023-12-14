@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class VerificationCodeController {
     @Autowired
     private VerificationCodeService verificationCodeService;
-    @GetMapping("//verification-code")
+    @GetMapping("/verification-code")
     public ResponseResult verificationCode(@RequestBody VerificationCodeDTO verificationCodeDTO){
         String passengerPhone =verificationCodeDTO.getPassengerPhone();
         return verificationCodeService.generatorCode(passengerPhone);

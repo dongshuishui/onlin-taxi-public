@@ -6,9 +6,9 @@ spring:
     name: service-driver-user
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.182.11:3306/service-driver-user?characterEncoding=utf-8&serverTimezne=GMT%2B8
+    url: jdbc:mysql://192.168.1.12:3306/service_driver_user?characterEncoding=utf-8&serverTimezne=GMT%2B8
     username: root
-    password: 123456
+    password: Chen8482332.
   cloud:
     nacos:
       discovery:
@@ -19,3 +19,4 @@ logging:
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:mapper/*.xml

@@ -2,7 +2,7 @@ package com.dongshuishui.apipassenger.remote;
 
 import com.dongshuishui.internalcommon.dto.ResponseResult;
 import com.dongshuishui.internalcommon.request.ForecastPriceDTO;
-import com.dongshuishui.internalcommon.reponse.ForecastPriceResponse;
+import com.dongshuishui.internalcommon.response.ForecastPriceResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

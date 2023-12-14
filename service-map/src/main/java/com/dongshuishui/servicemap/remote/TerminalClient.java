@@ -2,7 +2,7 @@ package com.dongshuishui.servicemap.remote;
 
 import com.dongshuishui.internalcommon.constant.AmapConfigConstants;
 import com.dongshuishui.internalcommon.dto.ResponseResult;
-import com.dongshuishui.internalcommon.reponse.TerminalResponse;
+import com.dongshuishui.internalcommon.response.TerminalResponse;
 import lombok.extern.slf4j.Slf4j;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -94,7 +94,8 @@ public class TerminalClient {
         for(int i = 0; i < results.size(); i++){
             TerminalResponse terminalResponse = new TerminalResponse();
             JSONObject jsonObject = results.getJSONObject(i);
-            Long carId = jsonObject.getLong("desc");
+            String desc = jsonObject.getString("desc");
+            Long carId = Long.parseLong(desc);
             String tid = jsonObject.getString("tid");
             terminalResponse.setCarId(carId);
             terminalResponse.setTid(tid);

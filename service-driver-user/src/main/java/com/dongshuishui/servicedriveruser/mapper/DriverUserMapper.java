@@ -13,4 +13,10 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface DriverUserMapper extends BaseMapper<DriverUser> {
+    /**
+     * 根据cityCode查询当前城市是否有可用司机
+     * @param arg
+     * @return
+     */
+    int selectDriverUserCountByCityCode(String arg);
 }

@@ -1,4 +1,4 @@
-package com.dongshuishui.internalcommon.reponse;
+package com.dongshuishui.internalcommon.response;
 
 import lombok.Data;
 

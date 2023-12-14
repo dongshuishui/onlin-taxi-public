@@ -1,7 +1,7 @@
 package com.dongshuishui.servicemap.service;
 
 import com.dongshuishui.internalcommon.dto.ResponseResult;
-import com.dongshuishui.internalcommon.reponse.DirectionResponse;
+import com.dongshuishui.internalcommon.response.DirectionResponse;
 import com.dongshuishui.servicemap.remote.MapDirectionClient;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +19,7 @@ public class DirectionService {
 
     @Autowired
     private MapDirectionClient mapDirectionClient;
+
     /**
      * 根据起点和终点经纬度来获取距离和时长
      * @param depLongitude

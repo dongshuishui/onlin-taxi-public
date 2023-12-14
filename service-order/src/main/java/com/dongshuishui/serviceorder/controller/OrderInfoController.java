@@ -38,7 +38,7 @@ public class OrderInfoController {
      * @return
      */
     @PostMapping("/add")
-    public ResponseResult add(@RequestBody OrderInfo orderInfo, HttpServletRequest httpServletRequest){
+    public ResponseResult add(@RequestBody OrderInfo orderInfo){
         //测试通过，通过head获取deviceCode
 //        String deviceCode = httpServletRequest.getHeader(HeaderParamConstants.DEVICE_CODE);
 //        orderInfo.setDeviceCode(deviceCode);

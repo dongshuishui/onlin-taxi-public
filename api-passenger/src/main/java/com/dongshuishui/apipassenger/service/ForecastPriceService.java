@@ -3,7 +3,7 @@ package com.dongshuishui.apipassenger.service;
 import com.dongshuishui.apipassenger.remote.ServicePriceClient;
 import com.dongshuishui.internalcommon.dto.ResponseResult;
 import com.dongshuishui.internalcommon.request.ForecastPriceDTO;
-import com.dongshuishui.internalcommon.reponse.ForecastPriceResponse;
+import com.dongshuishui.internalcommon.response.ForecastPriceResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -48,6 +48,8 @@ public class ForecastPriceService {
         forecastPriceResponse.setPrice(price);
         forecastPriceResponse.setCityCode(responseResult.getData().getCityCode());
         forecastPriceResponse.setVehicleType(responseResult.getData().getVehicleType());
+        forecastPriceResponse.setFareVersion(responseResult.getData().getFareVersion());
+        forecastPriceResponse.setFareType(responseResult.getData().getFareType());
         return ResponseResult.success(forecastPriceResponse);
     }
 }

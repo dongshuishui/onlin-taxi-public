@@ -2,8 +2,8 @@ package com.dongshuishui.servicedriveruser.service;
 
 import com.dongshuishui.internalcommon.dto.Car;
 import com.dongshuishui.internalcommon.dto.ResponseResult;
-import com.dongshuishui.internalcommon.reponse.TerminalResponse;
-import com.dongshuishui.internalcommon.reponse.TrackTesponse;
+import com.dongshuishui.internalcommon.response.TerminalResponse;
+import com.dongshuishui.internalcommon.response.TrackTesponse;
 import com.dongshuishui.servicedriveruser.mapper.CarMapper;
 import com.dongshuishui.servicedriveruser.remote.ServiceMapClient;
 import org.springframework.beans.factory.annotation.Autowired;

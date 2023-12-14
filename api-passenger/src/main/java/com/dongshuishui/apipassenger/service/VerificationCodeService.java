@@ -8,7 +8,7 @@ import com.dongshuishui.internalcommon.constant.TokenConstants;
 import com.dongshuishui.internalcommon.dto.ResponseResult;
 import com.dongshuishui.internalcommon.dto.TokenResponse;
 import com.dongshuishui.internalcommon.request.VerificationCodeDTO;
-import com.dongshuishui.internalcommon.reponse.NumberCodeReponse;
+import com.dongshuishui.internalcommon.response.NumberCodeReponse;
 import com.dongshuishui.internalcommon.util.JwtUtils;
 import com.dongshuishui.internalcommon.util.RedisPrefixUtils;
 import org.apache.commons.lang.StringUtils;

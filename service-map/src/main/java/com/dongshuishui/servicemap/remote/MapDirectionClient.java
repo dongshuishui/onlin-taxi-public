@@ -1,7 +1,7 @@
 package com.dongshuishui.servicemap.remote;
 
 import com.dongshuishui.internalcommon.constant.AmapConfigConstants;
-import com.dongshuishui.internalcommon.reponse.DirectionResponse;
+import com.dongshuishui.internalcommon.response.DirectionResponse;
 import lombok.extern.slf4j.Slf4j;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -43,7 +43,7 @@ public class MapDirectionClient {
         urlBuild.append("output=json");
         urlBuild.append("&");
         urlBuild.append("key=" + amapkey);
-        log.info(urlBuild.toString());
+        log.info("高德地图：路径规划，请求信息：" + urlBuild);
 
         //调用高德接口
         ResponseEntity<String> directionEntity = restTemplate.getForEntity(urlBuild.toString(), String.class);

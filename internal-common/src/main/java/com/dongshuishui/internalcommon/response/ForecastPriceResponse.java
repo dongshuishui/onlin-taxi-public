@@ -1,4 +1,4 @@
-package com.dongshuishui.internalcommon.reponse;
+package com.dongshuishui.internalcommon.response;
 
 import lombok.Data;
 
@@ -21,4 +21,13 @@ public class ForecastPriceResponse {
      * 车辆类型
      */
     private String vehicleType;
+
+    /**
+     *
+     */
+    private String fareType;
+    /**
+     *
+     */
+    private Integer fareVersion;
 }

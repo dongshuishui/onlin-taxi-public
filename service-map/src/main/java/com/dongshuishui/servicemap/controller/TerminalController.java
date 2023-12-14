@@ -1,7 +1,7 @@
 package com.dongshuishui.servicemap.controller;
 
 import com.dongshuishui.internalcommon.dto.ResponseResult;
-import com.dongshuishui.internalcommon.reponse.TerminalResponse;
+import com.dongshuishui.internalcommon.response.TerminalResponse;
 import com.dongshuishui.servicemap.service.TerminalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -1,8 +1,8 @@
 package com.dongshuishui.servicedriveruser.remote;
 
 import com.dongshuishui.internalcommon.dto.ResponseResult;
-import com.dongshuishui.internalcommon.reponse.TerminalResponse;
-import com.dongshuishui.internalcommon.reponse.TrackTesponse;
+import com.dongshuishui.internalcommon.response.TerminalResponse;
+import com.dongshuishui.internalcommon.response.TrackTesponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

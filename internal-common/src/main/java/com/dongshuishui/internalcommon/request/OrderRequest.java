@@ -77,4 +77,15 @@ public class OrderRequest {
      * 运价类型编码
      */
     private String fareType;
+
+    /**
+     * 乘客ID
+     */
+    private Long passengerId;
+
+    /**
+     * 乘客手机号
+     */
+    private String passengerPhone;
+
 }

@@ -5,8 +5,8 @@ import com.dongshuishui.internalcommon.constant.CommonStatusEnum;
 import com.dongshuishui.internalcommon.dto.PriceRule;
 import com.dongshuishui.internalcommon.dto.ResponseResult;
 import com.dongshuishui.internalcommon.request.ForecastPriceDTO;
-import com.dongshuishui.internalcommon.reponse.DirectionResponse;
-import com.dongshuishui.internalcommon.reponse.ForecastPriceResponse;
+import com.dongshuishui.internalcommon.response.DirectionResponse;
+import com.dongshuishui.internalcommon.response.ForecastPriceResponse;
 import com.dongshuishui.serviceprice.mapper.PriceRuleMapper;
 import com.dongshuishui.serviceprice.remote.ServiceMapClient;
 import com.dongshuishui.internalcommon.util.BigDecimalUtils;
@@ -75,6 +75,8 @@ public class ForecastPriceService {
         forecastPriceResponse.setPrice(price);
         forecastPriceResponse.setCityCode(cityCode);
         forecastPriceResponse.setVehicleType(vehicleType);
+        forecastPriceResponse.setFareType(priceRule.getFareType());
+        forecastPriceResponse.setFareVersion(priceRule.getFareVersion());
         return ResponseResult.success(forecastPriceResponse);
     }
 

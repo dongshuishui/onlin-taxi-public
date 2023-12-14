@@ -3,7 +3,8 @@ package com.dongshuishui.servicedriveruser.controller;
 import com.dongshuishui.internalcommon.constant.DriverCarConstants;
 import com.dongshuishui.internalcommon.dto.DriverUser;
 import com.dongshuishui.internalcommon.dto.ResponseResult;
-import com.dongshuishui.internalcommon.reponse.DriverUserExistsResponse;
+import com.dongshuishui.internalcommon.response.DriverUserExistsResponse;
+import com.dongshuishui.internalcommon.response.OrderDriverResponse;
 import com.dongshuishui.servicedriveruser.service.DriverUserService;
 import lombok.extern.slf4j.Slf4j;
 import net.sf.json.JSONObject;
@@ -68,4 +69,15 @@ public class UserController {
         }
         return ResponseResult.success(driverUserExistsResponse);
     }
+
+    /**
+     * 根据车辆ID查询订单需要的司机信息
+     * @param carId
+     * @return
+     */
+    @GetMapping("/get-available-driver/{carId}")
+    public ResponseResult<OrderDriverResponse> getAvailableDriver(@PathVariable("carId") long carId){
+        return driverUserService.getAvailableDriver(carId);
+    }
+
 }

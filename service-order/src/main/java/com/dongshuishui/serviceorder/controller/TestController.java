@@ -1,6 +1,11 @@
 package com.dongshuishui.serviceorder.controller;
 
+import com.dongshuishui.internalcommon.dto.OrderInfo;
+import com.dongshuishui.serviceorder.mapper.OrderInfoMapper;
+import com.dongshuishui.serviceorder.service.OrderInfoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -17,4 +22,14 @@ public class TestController {
         return "service-order test";
     }
 
+    @Autowired
+    private OrderInfoMapper orderInfoMapper;
+    @Autowired
+    private OrderInfoService orderInfoService;
+    @GetMapping("/test-real-time-order/{orderId}")
+    public String dispatchRealTimeOrder(@PathVariable("orderId") long orderId){
+        OrderInfo orderInfo = orderInfoMapper.selectById(orderId);
+        orderInfoService.dispatchRealTiemOrder(orderInfo);
+        return "test-real-time-order success";
+    }
 }
