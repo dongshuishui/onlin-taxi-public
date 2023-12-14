@@ -16,6 +16,8 @@ import com.dongshuishui.serviceorder.remote.ServicePriceClient;
 import lombok.extern.slf4j.Slf4j;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
+import org.redisson.api.RLock;
+import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
@@ -51,6 +53,8 @@ public class OrderInfoService {
 
     @Autowired
     private ServicePriceClient servicePriceClient;
+    @Autowired
+    private RedissonClient redissonClient;
     /**
      * 新增订单
      * @param orderInfo
@@ -102,7 +106,7 @@ public class OrderInfoService {
      * 实时订单派单逻辑
      * @param orderInfo
      */
-    public synchronized void dispatchRealTiemOrder(OrderInfo orderInfo){
+    public void dispatchRealTiemOrder(OrderInfo orderInfo){
         //2km
         String depLatitude = orderInfo.getDepLatitude();
         String depLongitude = orderInfo.getDepLongitude();
@@ -140,9 +144,14 @@ public class OrderInfoService {
                     Long driverId = orderDriverResponse.getDriverId();
                     String licenseId = orderDriverResponse.getLicenseId();
                     String vehicleNo = orderDriverResponse.getVehicleNo();
-
+                    //获取key
+                    String lockKey = (driverId+"").intern();
+                    // 拿到锁
+                    RLock lock = redissonClient.getLock(lockKey);
+                    lock.lock();
                     //判断乘客有正在进行的订单不允许下单
                     if(isDriverOrderGoingon(orderDriverResponse.getDriverId()) > 0){
+                        lock.unlock();
                         continue;
                     }
                     // 订单直接匹配司机
@@ -161,6 +170,8 @@ public class OrderInfoService {
                     orderInfo.setVehicleNo(vehicleNo);
                     orderInfo.setOrderStatus(OrderConstants.DRIVER_RECEIVE_ORDER);
                     orderInfoMapper.updateById(orderInfo);
+                    // 释放锁
+                    lock.unlock();
                     //退出不在进行司机的查找
                     break redus;
                 }
