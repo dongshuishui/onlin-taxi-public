@@ -22,6 +22,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -118,11 +119,14 @@ public class OrderInfoService {
             log.info("在半径为：" + radius + "的范围内，寻找车辆，结果：" + JSONObject.fromObject(aroundsearch.getData().get(0)).toString());
 
             // 获取终端
+            List<TerminalResponse> data = aroundsearch.getData();
             JSONArray result = JSONArray.fromObject(aroundsearch.getData());
-            for (int j = 0; j < result.size(); j++){
-                JSONObject jsonObject = result.getJSONObject(j);
-                String carIdString = jsonObject.getString("carId");
-                Long carId = Long.parseLong(carIdString);
+            for (int j = 0; j < data.size(); j++){
+                TerminalResponse terminalResponse = data.get(j);
+                Long carId = terminalResponse.getCarId();
+                String longitude = terminalResponse.getLongitude();
+                String latitude = terminalResponse.getLatitude();
+
                 // 根据车辆的id，查询是否有可派单的司机
                 ResponseResult<OrderDriverResponse> availableDriver = servicDriverUserClient.getAvailableDriver(carId);
                 // 如果司机为空
@@ -132,11 +136,31 @@ public class OrderInfoService {
                 }else {
                     log.info("车辆ID：" + carId + "找到了正常出车的司机");
                     OrderDriverResponse orderDriverResponse = availableDriver.getData();
+                    String driverPhone = orderDriverResponse.getDriverPhone();
+                    Long driverId = orderDriverResponse.getDriverId();
+                    String licenseId = orderDriverResponse.getLicenseId();
+                    String vehicleNo = orderDriverResponse.getVehicleNo();
 
                     //判断乘客有正在进行的订单不允许下单
                     if(isDriverOrderGoingon(orderDriverResponse.getDriverId()) > 0){
                         continue;
                     }
+                    // 订单直接匹配司机
+                    //查询当前车辆信息
+                    //查询当前司机信息
+                    orderInfo.setDriverId(driverId);
+                    orderInfo.setDriverPhone(driverPhone);
+                    orderInfo.setCarId(carId);
+
+                    //从地图中来
+                    orderInfo.setReceiveOrderCarLongitude(longitude);
+                    orderInfo.setReceiveOrderCarLatitude(latitude);
+
+                    orderInfo.setReceiveOrderTime( LocalDateTime.now());
+                    orderInfo.setLicenseId(licenseId);
+                    orderInfo.setVehicleNo(vehicleNo);
+                    orderInfo.setOrderStatus(OrderConstants.DRIVER_RECEIVE_ORDER);
+                    orderInfoMapper.updateById(orderInfo);
                     //退出不在进行司机的查找
                     break redus;
                 }
@@ -172,7 +196,7 @@ public class OrderInfoService {
     }
 
     /**
-     * 判断有正在进行的订单不允许下单
+     * 判断乘客有正在进行的订单不允许下单
      * @param passengerId
      * @return
      */
@@ -192,6 +216,11 @@ public class OrderInfoService {
         return validOrderNumber;
     }
 
+    /**
+     * 判断司机是否有正在进行的订单
+     * @param driverId
+     * @return
+     */
     private int isDriverOrderGoingon(Long driverId){
         QueryWrapper<OrderInfo> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("driver_id", driverId);

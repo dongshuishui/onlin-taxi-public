@@ -15,4 +15,6 @@ public class TerminalResponse {
     private String sid;
 
     private Long carId;
+    private String longitude;
+    private String latitude;
 }
