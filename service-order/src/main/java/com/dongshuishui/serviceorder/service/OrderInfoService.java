@@ -140,29 +140,31 @@ public class OrderInfoService {
                     Long driverId = orderDriverResponse.getDriverId();
                     String licenseId = orderDriverResponse.getLicenseId();
                     String vehicleNo = orderDriverResponse.getVehicleNo();
+                    // 锁司机ID小技巧，使用intern是我们从常量池中获取。
+                    synchronized ((driverId+"").intern()){
+                        //判断乘客有正在进行的订单不允许下单
+                        if(isDriverOrderGoingon(orderDriverResponse.getDriverId()) > 0){
+                            continue;
+                        }
+                        // 订单直接匹配司机
+                        //查询当前车辆信息
+                        //查询当前司机信息
+                        orderInfo.setDriverId(driverId);
+                        orderInfo.setDriverPhone(driverPhone);
+                        orderInfo.setCarId(carId);
 
-                    //判断乘客有正在进行的订单不允许下单
-                    if(isDriverOrderGoingon(orderDriverResponse.getDriverId()) > 0){
-                        continue;
+                        //从地图中来
+                        orderInfo.setReceiveOrderCarLongitude(longitude);
+                        orderInfo.setReceiveOrderCarLatitude(latitude);
+
+                        orderInfo.setReceiveOrderTime( LocalDateTime.now());
+                        orderInfo.setLicenseId(licenseId);
+                        orderInfo.setVehicleNo(vehicleNo);
+                        orderInfo.setOrderStatus(OrderConstants.DRIVER_RECEIVE_ORDER);
+                        orderInfoMapper.updateById(orderInfo);
+                        //退出不在进行司机的查找
+                        break redus;
                     }
-                    // 订单直接匹配司机
-                    //查询当前车辆信息
-                    //查询当前司机信息
-                    orderInfo.setDriverId(driverId);
-                    orderInfo.setDriverPhone(driverPhone);
-                    orderInfo.setCarId(carId);
-
-                    //从地图中来
-                    orderInfo.setReceiveOrderCarLongitude(longitude);
-                    orderInfo.setReceiveOrderCarLatitude(latitude);
-
-                    orderInfo.setReceiveOrderTime( LocalDateTime.now());
-                    orderInfo.setLicenseId(licenseId);
-                    orderInfo.setVehicleNo(vehicleNo);
-                    orderInfo.setOrderStatus(OrderConstants.DRIVER_RECEIVE_ORDER);
-                    orderInfoMapper.updateById(orderInfo);
-                    //退出不在进行司机的查找
-                    break redus;
                 }
 
             }
